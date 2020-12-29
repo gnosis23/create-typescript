@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import TestDialog from "./components/TestDialog";
 
 function App() {
+  const [visible, setVisible] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>hello world</h1>
+      <button onClick={() => setVisible(true)}>Open</button>
+      <TestDialog
+        visible={visible}
+        title="demo-dialog"
+        onSuccess={e => console.log(e)}
+        onClose={() => setVisible(false)}
+      />
     </div>
   );
 }
